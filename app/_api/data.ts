@@ -3,7 +3,7 @@ export function getProjects() {
     {
       title: "Syncora",
       description: "An all in one task management application",
-      image: "/syncora.jpg?height=192&width=384",
+      image: "/syncora.JPG?height=192&width=384",
       technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
       demo: "#",
       github: "https://github.com/Kwanddwo/Syncora-NEXTJS",
@@ -12,7 +12,7 @@ export function getProjects() {
       title: "Airline Management System",
       description:
         "A platform for managing airline operations, including flight scheduling and ticket booking",
-      image: "/airensa.jpg?height=192&width=384",
+      image: "/airensa.JPG?height=192&width=384",
       technologies: ["Django", "Jinja", "CSS"],
       demo: "#",
       github: "https://github.com/Kwanddwo/gestion_avion",
@@ -20,7 +20,7 @@ export function getProjects() {
     {
       title: "MERN Social",
       description: "A social media platform using the MERN stack",
-      image: "/mernsocial.jpg?height=192&width=384",
+      image: "/mernsocial.JPG?height=192&width=384",
       technologies: ["React.js", "Express", "MongoDB", "Node"],
       demo: "#",
       github: "https://github.com/Kwanddwo/mernsocial",
@@ -29,7 +29,7 @@ export function getProjects() {
       title: "Stock Trading App",
       description:
         "A stock trading simulator with real-time price updates using IEX's API",
-      image: "/finance.jpg?height=192&width=384",
+      image: "/finance.JPG?height=192&width=384",
       technologies: ["Flask", "SQLite", "Bootstrap"],
       demo: "#",
       github: "https://github.com/Kwanddwo/cs50/tree/master/finance",
