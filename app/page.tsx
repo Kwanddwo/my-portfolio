@@ -30,7 +30,7 @@ export default function Portfolio() {
       {/* Header */}
       <header className="sticky top-0 px-4 md:px-10 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex h-16 items-center justify-between">
-          <div className="font-bold text-lg">Marouane LEMGHARI</div>
+          <div className="font-bold text-md md:text-lg">Marouane LEMGHARI</div>
           <nav className="hidden md:flex gap-6">
             <Link
               href="#about"
@@ -211,7 +211,7 @@ export default function Portfolio() {
             <p className="text-muted-foreground">Technologies I work with</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {skillCategories.map((category, index) => (
               <Card key={index}>
                 <CardHeader>
