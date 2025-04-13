@@ -13,7 +13,7 @@ export function getProjects() {
       description:
         "A platform for managing airline operations, including flight scheduling and ticket booking",
       image: "/airensa.JPG?height=192&width=384",
-      technologies: ["Django", "Jinja", "CSS"],
+      technologies: ["React.js", "Django", "Jinja"],
       demo: "#",
       github: "https://github.com/Kwanddwo/gestion_avion",
     },
@@ -30,7 +30,7 @@ export function getProjects() {
       description:
         "A stock trading simulator with real-time price updates using IEX's API",
       image: "/finance.JPG?height=192&width=384",
-      technologies: ["Flask", "SQLite", "Bootstrap"],
+      technologies: ["React.js", "Flask", "SQLite", "Bootstrap"],
       demo: "#",
       github: "https://github.com/Kwanddwo/cs50/tree/master/finance",
     },
