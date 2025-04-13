@@ -20,6 +20,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { getProjects, getSkillCategories } from "@/app/_api/data";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Portfolio() {
   const projects = getProjects();
@@ -96,6 +97,7 @@ export default function Portfolio() {
                 <span className="sr-only">Resume</span>
               </Link>
             </Button>
+            <ModeToggle />
           </div>
         </div>
       </header>
@@ -241,27 +243,45 @@ export default function Portfolio() {
             <Mail className="h-5 w-5 text-primary" />
             <div>
               <p className="text-sm font-medium">Email</p>
-              <p className="text-sm text-muted-foreground">
-                marouanelemghari@gmail.com
-              </p>
+              <Link
+                href="mailto:marouanelemghari@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="text-sm text-muted-foreground">
+                  marouanelemghari@gmail.com
+                </p>{" "}
+              </Link>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <Github className="h-5 w-5 text-primary" />
             <div>
               <p className="text-sm font-medium">GitHub</p>
-              <p className="text-sm text-muted-foreground">
-                github.com/Kwanddwo
-              </p>
+              <Link
+                href="https://github.com/Kwanddwo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="text-sm text-muted-foreground">
+                  github.com/Kwanddwo
+                </p>
+              </Link>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <Linkedin className="h-5 w-5 text-primary" />
             <div>
               <p className="text-sm font-medium">LinkedIn</p>
-              <p className="text-sm text-muted-foreground">
-                linkedin.com/in/marouane-lemghari
-              </p>
+              <Link
+                href="https://linkedin.com/in/marouane-lemghari"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="text-sm text-muted-foreground">
+                  linkedin.com/in/marouane-lemghari
+                </p>
+              </Link>
             </div>
           </div>
         </section>
@@ -273,34 +293,6 @@ export default function Portfolio() {
           <p className="text-sm text-muted-foreground">
             Made with ❤️ by Marouane LEMGHARI
           </p>
-          {/* <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" asChild>
-              <Link
-                href="https://github.com/Kwanddwo"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <Link
-                href="https://linkedin.com/in/marouane-lemghari"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="h-4 w-4" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="mailto:marouanelemghari@gmail.com">
-                <Mail className="h-4 w-4" />
-                <span className="sr-only">Email</span>
-              </Link>
-            </Button>
-          </div> */}
         </div>
       </footer>
     </div>
