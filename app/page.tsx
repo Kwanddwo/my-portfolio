@@ -28,7 +28,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 px-10 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 px-4 md:px-10 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex h-16 items-center justify-between">
           <div className="font-bold text-lg">Marouane LEMGHARI</div>
           <nav className="hidden md:flex gap-6">
@@ -233,7 +233,7 @@ export default function Portfolio() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 px-20 space-y-8">
+        <section id="contact" className="py-20 px-4 md:px-20 space-y-8">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Contact</h2>
             <p className="text-muted-foreground">Get in touch with me</p>
