@@ -116,7 +116,7 @@ export default function Portfolio() {
               Hey, I&apos;m Marouane
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground">
-              JavaScript Developer based in Casablanca.
+              Fullstack Developer based in Casablanca.
             </p>
             <p className="text-muted-foreground max-w-md">
               I build responsive, accessible, and performant web applications
