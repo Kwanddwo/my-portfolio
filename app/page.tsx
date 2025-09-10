@@ -109,9 +109,9 @@ export default function Portfolio() {
           className="py-20 md:py-24 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12"
         >
           <div className="space-y-4">
-            <Badge className="px-3 py-1 text-sm">
+            {/*<Badge className="px-3 py-1 text-sm">
               Looking for a summer internship
-            </Badge>
+            </Badge>*/}
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               Hey, I&apos;m Marouane
             </h1>
