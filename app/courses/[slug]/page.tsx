@@ -17,16 +17,16 @@ type MDXComponentProps = React.HTMLAttributes<HTMLElement>;
 // MDX components for custom styling
 const components = {
   h1: (props: MDXComponentProps) => (
-    <h1 className="text-4xl font-bold mt-8 mb-4 scroll-mt-20" {...props} />
+    <h1 className="text-4xl font-bold mt-40 mb-4 scroll-mt-20" {...props} />
   ),
   h2: (props: MDXComponentProps) => (
-    <h2 className="text-3xl font-bold mt-8 mb-4 scroll-mt-20" {...props} />
+    <h2 className="text-3xl font-bold mt-40 mb-4 scroll-mt-20" {...props} />
   ),
   h3: (props: MDXComponentProps) => (
-    <h3 className="text-2xl font-semibold mt-6 mb-3 scroll-mt-20" {...props} />
+    <h3 className="text-2xl font-semibold mt-40 mb-3 scroll-mt-20" {...props} />
   ),
   h4: (props: MDXComponentProps) => (
-    <h4 className="text-xl font-semibold mt-4 mb-2 scroll-mt-20" {...props} />
+    <h4 className="text-xl font-semibold mt-40 mb-2 scroll-mt-20" {...props} />
   ),
   p: (props: MDXComponentProps) => <p className="my-4 leading-7" {...props} />,
   ul: (props: MDXComponentProps) => (
