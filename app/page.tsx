@@ -11,10 +11,11 @@ import { Badge } from "@/components/ui/badge";
 import {
   Github,
   Linkedin,
-  FileUser,
+  // FileUser,
   Mail,
   ExternalLink,
   ArrowRight,
+  // BookOpen,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -63,6 +64,12 @@ export default function Portfolio() {
             >
               Resume
             </Link>
+            <Link
+              href="/courses"
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              Courses
+            </Link>
           </nav>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" asChild>
@@ -91,12 +98,6 @@ export default function Portfolio() {
                 <span className="sr-only">Email</span>
               </Link>
             </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="/resume.pdf" download>
-                <FileUser className="h-5 w-5" />
-                <span className="sr-only">Resume</span>
-              </Link>
-            </Button>
             <ModeToggle />
           </div>
         </div>
@@ -116,7 +117,7 @@ export default function Portfolio() {
               Hey, I&apos;m Marouane
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground">
-              Fullstack Developer based in Casablanca.
+              Software Engineer based in Casablanca.
             </p>
             <p className="text-muted-foreground max-w-md">
               I build responsive, accessible, and performant web applications

@@ -207,10 +207,6 @@ const RACIMatrix = () => {
               <span className="font-semibold">Marketing Lead:</span> Promotes
               workshops, manages communications and outreach
             </p>
-            <p>
-              <span className="font-semibold">Mentor/TA:</span> Provides
-              hands-on support during workshops, assists students
-            </p>
           </div>
         </div>
       </div>
