@@ -6,8 +6,7 @@ export const siteConfig = {
   title: "Marouane LEMGHARI - Software Engineer & Full-Stack Developer",
   description:
     "Portfolio of Marouane LEMGHARI, a passionate Software Engineer specializing in full-stack development with expertise in React, Next.js, TypeScript, Node.js, and modern web technologies. Explore my projects, course notes, and technical skills.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL || "https://marouane-lemghari.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://marouane-lemghari.me",
   ogImage: "/opengraph-image",
   keywords: [
     "Marouane LEMGHARI",
