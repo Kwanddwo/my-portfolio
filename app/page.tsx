@@ -22,12 +22,30 @@ import Image from "next/image";
 
 import { getProjects, getSkillCategories } from "@/app/_api/data";
 import { ModeToggle } from "@/components/mode-toggle";
+import { 
+  generatePersonJsonLd, 
+  generateWebsiteJsonLd
+} from "@/lib/seo";
 
 export default function Portfolio() {
   const projects = getProjects();
   const skillCategories = getSkillCategories();
+  
+  const personJsonLd = generatePersonJsonLd();
+  const websiteJsonLd = generateWebsiteJsonLd();
+  
   return (
     <div className="min-h-screen bg-background">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      
       {/* Header */}
       <header className="sticky top-0 px-4 md:px-10 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex h-16 items-center justify-between">

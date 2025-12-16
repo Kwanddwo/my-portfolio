@@ -10,11 +10,14 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Home } from "lucide-react";
+import { generateSEOMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Course Notes | Marouane LEMGHARI",
-  description: "Follow along with my course notes and learning resources",
-};
+export const metadata = generateSEOMetadata({
+  title: "Course Notes",
+  description: "Follow along with my course notes and learning resources. Comprehensive guides and tutorials on Git, GitHub, web development, and software engineering topics taught by Marouane LEMGHARI.",
+  keywords: ["course notes", "programming tutorials", "git course", "github tutorial", "web development courses", "software engineering"],
+  url: "/courses",
+});
 
 export default function CoursesPage() {
   const courseNotes = getAllCourseNotes();

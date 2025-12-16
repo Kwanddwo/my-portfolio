@@ -11,6 +11,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 import "highlight.js/styles/github-dark.css";
 import React from "react";
+import { generateSEOMetadata, generateArticleJsonLd, siteConfig } from "@/lib/seo";
 
 type MDXComponentProps = React.HTMLAttributes<HTMLElement>;
 
@@ -98,10 +99,13 @@ export async function generateMetadata({
     };
   }
 
-  return {
-    title: `${note.title} | Course Notes`,
-    description: note.description,
-  };
+  return generateSEOMetadata({
+    title: note.title,
+    description: note.description || `Learn about ${note.title} - Course notes by Marouane LEMGHARI`,
+    keywords: note.category ? [note.category, note.level || ""] : [],
+    url: `/courses/${slug}`,
+    type: "article",
+  });
 }
 
 export default async function CourseNotePage({
@@ -116,8 +120,22 @@ export default async function CourseNotePage({
     notFound();
   }
 
+  const articleJsonLd = generateArticleJsonLd({
+    title: note.title,
+    description: note.description || `Learn about ${note.title}`,
+    datePublished: new Date().toISOString(),
+    dateModified: new Date().toISOString(),
+    url: `${siteConfig.url}/courses/${slug}`,
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      
       {/* Header */}
       <header className="sticky top-0 px-4 md:px-10 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex h-16 items-center justify-between">
@@ -190,6 +208,6 @@ export default async function CourseNotePage({
           </Link>
         </div>
       </main>
-    </div>
+      </div>
   );
 }
