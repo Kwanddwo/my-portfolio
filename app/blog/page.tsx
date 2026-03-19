@@ -13,14 +13,14 @@ import { BookOpen, ArrowRight, Home } from "lucide-react";
 import { generateSEOMetadata } from "@/lib/seo";
 
 export const metadata = generateSEOMetadata({
-  title: "Course Notes",
-  description: "Follow along with my course notes and learning resources. Comprehensive guides and tutorials on Git, GitHub, web development, and software engineering topics taught by Marouane LEMGHARI.",
-  keywords: ["course notes", "programming tutorials", "git course", "github tutorial", "web development courses", "software engineering"],
-  url: "/courses",
+  title: "Blog",
+  description: "follow along on my software engineering journey, anything interesting that I come across I will write a post about here. Marouane LEMGHARI.",
+  keywords: ["blog", "programming tutorials", "competitive programming", "tutorial", "web development", "software engineering"],
+  url: "/blog",
 });
 
-export default function CoursesPage() {
-  const courseNotes = getAllCourseNotes();
+export default function BlogPage() {
+  const posts = getAllCourseNotes();
 
   return (
     <div className="min-h-screen bg-background">
@@ -46,19 +46,19 @@ export default function CoursesPage() {
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="h-8 w-8 text-primary" />
-            <h1 className="text-4xl font-bold">Course Notes</h1>
+            <h1 className="text-4xl font-bold">Blog</h1>
           </div>
           <p className="text-lg text-muted-foreground">
-            These are some of the courses I taught as an instructor.
+            Follow along on my software engineering journey and things I learn.
           </p>
         </div>
 
-        {/* Course Notes Grid */}
+        {/* Blog Posts Grid */}
         <div className="grid gap-6 md:grid-cols-2">
-          {courseNotes.map((note) => (
+          {posts.map((note) => (
             <Link
               key={note.slug}
-              href={`/courses/${note.slug}`}
+              href={`/blog/${note.slug}`}
               className="group"
             >
               <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50">
@@ -83,7 +83,7 @@ export default function CoursesPage() {
                       <Badge variant="outline">{note.category}</Badge>
                     )}
                     <div className="flex items-center text-sm text-primary">
-                      <span className="mr-1">Read notes</span>
+                      <span className="mr-1">Read post</span>
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
@@ -93,10 +93,10 @@ export default function CoursesPage() {
           ))}
         </div>
 
-        {courseNotes.length === 0 && (
+        {posts.length === 0 && (
           <Card className="p-12 text-center">
             <p className="text-muted-foreground">
-              No course notes available yet. Check back soon!
+              No posts available yet. Check back soon!
             </p>
           </Card>
         )}

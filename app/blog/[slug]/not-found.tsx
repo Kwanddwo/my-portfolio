@@ -15,10 +15,10 @@ export default function CourseNoteNotFound() {
             </Link>
           </div>
           <div className="flex gap-2">
-            <Link href="/courses">
+            <Link href="/blog">
               <Button variant="ghost" size="sm">
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                All Notes
+                Return to blog
               </Button>
             </Link>
             <Link href="/">
@@ -38,16 +38,16 @@ export default function CourseNoteNotFound() {
               <FileQuestion className="h-12 w-12 text-muted-foreground" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold mb-4">Course Note Not Found</h1>
+          <h1 className="text-3xl font-bold mb-4">Post Not Found</h1>
           <p className="text-muted-foreground mb-8">
-            The course note you&apos;re looking for doesn&apos;t exist or has
+            The post you&apos;re looking for doesn&apos;t exist or has
             been moved.
           </p>
           <div className="flex gap-4 justify-center">
-            <Link href="/courses">
+            <Link href="/blog">
               <Button>
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Browse All Notes
+                Browse All Posts
               </Button>
             </Link>
             <Link href="/">

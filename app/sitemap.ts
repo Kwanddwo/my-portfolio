@@ -5,8 +5,8 @@ import { siteConfig } from "@/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
 
-  // Get all course note slugs
-  const courseSlugs = getAllCourseNoteSlugs();
+  // Get all post slugs from the existing markdown source
+  const postSlugs = getAllCourseNoteSlugs();
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -17,20 +17,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/courses`,
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
   ];
 
-  // Dynamic course pages
-  const coursePages: MetadataRoute.Sitemap = courseSlugs.map((slug) => ({
-    url: `${baseUrl}/courses/${slug}`,
+  // Dynamic blog post pages
+  const postPages: MetadataRoute.Sitemap = postSlugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  return [...staticPages, ...coursePages];
+  return [...staticPages, ...postPages];
 }

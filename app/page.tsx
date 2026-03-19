@@ -83,10 +83,10 @@ export default function Portfolio() {
               Resume
             </Link>
             <Link
-              href="/courses"
+              href="/blog"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
-              Courses
+              Blog
             </Link>
           </nav>
           <div className="flex items-center gap-2">

@@ -95,15 +95,15 @@ export async function generateMetadata({
 
   if (!note) {
     return {
-      title: "Course Note Not Found",
+      title: "Post Not Found",
     };
   }
 
   return generateSEOMetadata({
     title: note.title,
-    description: note.description || `Learn about ${note.title} - Course notes by Marouane LEMGHARI`,
+    description: note.description || `Read ${note.title} - Blog post by Marouane LEMGHARI`,
     keywords: note.category ? [note.category, note.level || ""] : [],
-    url: `/courses/${slug}`,
+    url: `/blog/${slug}`,
     type: "article",
   });
 }
@@ -122,10 +122,10 @@ export default async function CourseNotePage({
 
   const articleJsonLd = generateArticleJsonLd({
     title: note.title,
-    description: note.description || `Learn about ${note.title}`,
+    description: note.description || `Read ${note.title}`,
     datePublished: new Date().toISOString(),
     dateModified: new Date().toISOString(),
-    url: `${siteConfig.url}/courses/${slug}`,
+    url: `${siteConfig.url}/blog/${slug}`,
   });
 
   return (
@@ -145,10 +145,10 @@ export default async function CourseNotePage({
             </Link>
           </div>
           <div className="flex gap-2">
-            <Link href="/courses">
+            <Link href="/blog">
               <Button variant="ghost" size="sm">
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                All Notes
+                All Posts
               </Button>
             </Link>
             <Link href="/">
@@ -162,7 +162,7 @@ export default async function CourseNotePage({
       </header>
 
       <main className="container mx-auto px-4 py-12 max-w-4xl">
-        {/* Note Header */}
+        {/* Post Header */}
         <div className="mb-8">
           <div className="flex flex-wrap gap-2 mb-4">
             {note.level && <Badge variant="secondary">{note.level}</Badge>}
@@ -172,7 +172,7 @@ export default async function CourseNotePage({
           <p className="text-lg text-muted-foreground">{note.description}</p>
         </div>
 
-        {/* Note Content */}
+        {/* Post Content */}
         <article className="prose prose-neutral dark:prose-invert max-w-none">
           <MDXRemote
             source={note.content}
@@ -198,12 +198,12 @@ export default async function CourseNotePage({
           />
         </article>
 
-        {/* Back to notes */}
+        {/* Back to posts */}
         <div className="mt-12 pt-8 border-t">
-          <Link href="/courses">
+          <Link href="/blog">
             <Button variant="outline">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to all course notes
+              Back to all posts
             </Button>
           </Link>
         </div>

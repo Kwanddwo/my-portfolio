@@ -1,6 +1,6 @@
 # Portfolio - Marouane LEMGHARI
 
-My personal portfolio website built with Next.js, featuring projects, skills, and course notes.
+My personal portfolio website built with Next.js, featuring projects, skills, and blog posts.
 
 Take a look [here](https://www.marouane-lemghari.me).
 
@@ -8,7 +8,7 @@ Take a look [here](https://www.marouane-lemghari.me).
 
 - 🎨 **Modern Design** - Clean, responsive UI with dark mode support
 - 📱 **Mobile-First** - Optimized for all devices
-- 📝 **Course Notes** - Markdown-based learning notes system
+- 📝 **Blog** - Markdown-based publishing system
 - ⚡ **Optimized Performance** - Static generation for fast loads
 - 🎯 **SEO Ready** - Meta
 
@@ -38,11 +38,11 @@ npm start
 
 ```
 app/                  # Next.js app directory
-  courses/           # Course notes pages
+  blog/              # Blog pages
   _api/              # Data/API utilities
 components/          # React components
 content/             # Markdown content
-  courses/          # Course note files
+  courses/           # Markdown source files (used by blog)
 lib/                 # Utility functions
 public/              # Static assets
 ```
