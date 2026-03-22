@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${
-      process.env.NEXT_PUBLIC_SITE_URL || "https://marouane-lemghari.me"
+      process.env.NEXT_PUBLIC_SITE_URL || "https://marouanelemghari.com"
     }/sitemap.xml`,
   };
 }

@@ -2,34 +2,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FileQuestion, Home, ArrowLeft } from "lucide-react";
+import { SiteHeader } from "@/components/site-header";
 
-export default function CourseNoteNotFound() {
+export default function BlogNotFound() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 px-4 md:px-10 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center justify-between">
-          <div className="font-bold text-md md:text-lg">
-            <Link href="/" className="hover:text-primary transition-colors">
-              Marouane LEMGHARI
-            </Link>
-          </div>
-          <div className="flex gap-2">
-            <Link href="/blog">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Return to blog
-              </Button>
-            </Link>
-            <Link href="/">
-              <Button variant="ghost" size="sm">
-                <Home className="h-4 w-4 mr-2" />
-                Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="container mx-auto px-4 py-20 max-w-2xl">
         <Card className="p-12 text-center">

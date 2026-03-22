@@ -29,7 +29,7 @@ const slug = title
 
 // Create filename
 const filename = `${slug}.md`;
-const filepath = path.join(__dirname, '..', 'content', 'courses', filename);
+const filepath = path.join(__dirname, '..', 'content', 'blogs', filename);
 
 // Check if file already exists
 if (fs.existsSync(filepath)) {
@@ -41,7 +41,6 @@ if (fs.existsSync(filepath)) {
 const template = `---
 title: "${title}"
 description: "Add a brief description here"
-level: "Beginner"
 category: "Development"
 order: 999
 ---
@@ -63,8 +62,8 @@ Content for section 1.
 try {
   fs.writeFileSync(filepath, template, 'utf8');
   console.log('✅ Created new course note:');
-  console.log(`   File: content/courses/${filename}`);
-  console.log(`   URL:  /courses/${slug}`);
+  console.log(`   File: content/blogs/${filename}`);
+  console.log(`   URL:  /blogs/${slug}`);
   console.log('');
   console.log('📝 Next steps:');
   console.log('   1. Edit the frontmatter (description, level, category, order)');

@@ -1,83 +1,144 @@
-export function getProjects() {
-  const projects = [
-    {
-      title: "Syncora",
-      description: "An all in one task management application",
-      image: "/syncora.JPG?height=192&width=384",
-      technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-      demo: "#",
-      github: "https://github.com/Kwanddwo/Syncora-NEXTJS",
-    },
-    {
-      title: "Airline Management System",
-      description:
-        "A platform for managing airline operations, including flight scheduling and ticket booking",
-      image: "/airensa.JPG?height=192&width=384",
-      technologies: ["React.js", "Django", "Jinja"],
-      demo: "#",
-      github: "https://github.com/Kwanddwo/gestion_avion",
-    },
-    {
-      title: "MERN Social",
-      description: "A social media platform using the MERN stack",
-      image: "/mernsocial.JPG?height=192&width=384",
-      technologies: ["React.js", "Express", "MongoDB", "Node"],
-      demo: "#",
-      github: "https://github.com/Kwanddwo/mernsocial",
-    },
-    {
-      title: "Stock Trading App",
-      description:
-        "A stock trading simulator with real-time price updates using IEX's API",
-      image: "/finance.JPG?height=192&width=384",
-      technologies: ["React.js", "Flask", "SQLite", "Bootstrap"],
-      demo: "#",
-      github: "https://github.com/Kwanddwo/cs50/tree/master/finance",
-    },
-  ];
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  demo: string;
+  github: string;
+};
 
-  return projects;
+const githubProjectsQuery = `
+  query PortfolioProjects($login: String!) {
+    user(login: $login) {
+      pinnedItems(first: 6, types: REPOSITORY) {
+        nodes {
+          ... on Repository {
+            name
+            description
+            homepageUrl
+            url
+            openGraphImageUrl
+            repositoryTopics(first: 8) {
+              nodes {
+                topic {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+type GithubProjectsResponse = {
+  data?: {
+    user?: {
+      pinnedItems?: {
+        nodes?: Array<{
+          name: string;
+          description: string | null;
+          homepageUrl: string | null;
+          url: string;
+          openGraphImageUrl: string;
+          repositoryTopics?: {
+            nodes?: Array<{
+              topic?: {
+                name?: string;
+              };
+            }>;
+          };
+        }>;
+      };
+    };
+  };
+  errors?: Array<{ message?: string }>;
+};
+
+export async function getProjects(): Promise<Project[]> {
+  const token = process.env.GITHUB_TOKEN;
+
+  if (!token) {
+    return [];
+  }
+
+  const response = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      query: githubProjectsQuery,
+      variables: { login: "Kwanddwo" },
+    }),
+    next: { revalidate: 60 * 60 * 2 },
+  });
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const payload = (await response.json()) as GithubProjectsResponse;
+
+  if (payload.errors?.length) {
+    return [];
+  }
+
+  const repos = payload.data?.user?.pinnedItems?.nodes ?? [];
+
+  return repos.map((repo) => ({
+    title: repo.name,
+    description: repo.description ?? "No description provided.",
+    image: repo.openGraphImageUrl,
+    technologies:
+      repo.repositoryTopics?.nodes
+        ?.map((node) => node.topic?.name)
+        .filter((topic): topic is string => Boolean(topic)) ?? [],
+    demo: repo.homepageUrl || "#",
+    github: repo.url,
+  }));
 }
 
 export function getSkillCategories() {
   const skillCategories = [
     {
+      name: "Languages",
+      skills: ["JavaScript", "TypeScript", "Python", "C/C++", "Java"],
+    },
+    {
       name: "Frontend",
-      skills: ["JavaScript", "TypeScript", "React", "Next.js"],
+      skills: ["React", "Next.js", "Tailwind CSS"],
     },
     {
       name: "Backend",
-      skills: ["Node.js", "Express", "GraphQL", "Django", "Flask"],
+      skills: ["Node.js", "Express", "REST APIs", "tRPC", "GraphQL"],
+    },
+    {
+      name: "AI",
+      skills: ["Ollama", "Docker Model Runner", "Prompt Engineering"],
     },
     {
       name: "Database",
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Prisma"],
+      skills: ["MongoDB", "PostgreSQL", "MySQL", "Oracle", "Prisma ORM"],
     },
     // {
     //   name: "DevOps",
-    //   skills: ["Git", "Docker", "CI/CD", "AWS", "Vercel"],
+    //   skills: ["Docker", "CI/CD", "Ansible", "Kubernetes", "Linux"],
     // },
+    // {
+    //   name: "Security",
+    //   skills: ["CTF", "LFI/RFI", "CVE Analysis", "Cryptography", "PKI/X.509"],
+    // },
+    {
+      name: "Tools",
+      skills: ["Git", "Neovim", "Vercel"],
+    },
     {
       name: "Testing",
       skills: ["Jest", "React Testing Library", "Cypress"],
     },
-    {
-      name: "Tools",
-      skills: ["VS Code", "Git", "Vite", "npm/yarn", "Postman"],
-    },
-    {
-      name: "Design",
-      skills: ["Figma", "Tailwind", "CSS", "Responsive Design"],
-    },
-    // {
-    //   name: "Other",
-    //   skills: [
-    //     "Agile/Scrum",
-    //     "RESTful APIs",
-    //     "Performance Optimization",
-    //     "SEO",
-    //   ],
-    // },
   ];
 
   return skillCategories;

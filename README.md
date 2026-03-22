@@ -2,7 +2,7 @@
 
 My personal portfolio website built with Next.js, featuring projects, skills, and blog posts.
 
-Take a look [here](https://www.marouane-lemghari.me).
+Take a look [here](https://www.marouanelemghari.com).
 
 ## Features
 
@@ -42,7 +42,7 @@ app/                  # Next.js app directory
   _api/              # Data/API utilities
 components/          # React components
 content/             # Markdown content
-  courses/           # Markdown source files (used by blog)
+  blogs/           # Markdown source files (used by blog)
 lib/                 # Utility functions
 public/              # Static assets
 ```

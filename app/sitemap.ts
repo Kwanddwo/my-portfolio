@@ -1,12 +1,12 @@
 import { MetadataRoute } from "next";
-import { getAllCourseNoteSlugs } from "@/lib/course-notes";
+import { getAllBlogSlugs } from "@/lib/blogs";
 import { siteConfig } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
 
   // Get all post slugs from the existing markdown source
-  const postSlugs = getAllCourseNoteSlugs();
+  const postSlugs = getAllBlogSlugs();
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

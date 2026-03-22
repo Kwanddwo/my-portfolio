@@ -4,6 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   compress: true,
   poweredByHeader: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "opengraph.githubassets.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 
   async headers() {
     return [
