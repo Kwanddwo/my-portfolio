@@ -83,7 +83,7 @@ export function SiteHeader({ isHomePage = false }: SiteHeaderProps) {
             href="/"
             className={
               archivoNarrow.className +
-              " text-4xl md:text-5xl hover:underline decoration-accent-foreground"
+              " text-2xl md:text-5xl hover:underline decoration-accent-foreground"
             }
           >
             Marouane Lemghari
