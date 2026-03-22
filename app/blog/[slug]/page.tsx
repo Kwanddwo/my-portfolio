@@ -46,7 +46,7 @@ const components = {
   li: (props: MDXComponentProps) => <li className="my-1.5" {...props} />,
   a: (props: MDXComponentProps) => (
     <a
-      className="hover:underline font-medium"
+      className="underline font-medium"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
@@ -223,7 +223,7 @@ export default async function BlogPage({
           </div>
 
           <aside className="mt-12 lg:mt-0">
-            <div className="p-4">
+            <div>
               <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide">
                 Recent Posts
               </h2>
