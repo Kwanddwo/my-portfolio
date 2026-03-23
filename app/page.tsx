@@ -32,7 +32,7 @@ export default async function Portfolio() {
   const websiteJsonLd = generateWebsiteJsonLd();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen grainy-background">
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
