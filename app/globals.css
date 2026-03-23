@@ -115,8 +115,8 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
   --texture-dot: hsl(220 40% 92% / 0.09);
-  --texture-glow-1: hsl(223, 63%, 52% / 0.18);
-  --texture-glow-2: hsl(19 90% 62% / 0.12);
+  --texture-glow-1: hsla(223, 57%, 53%, 0.18);
+  --texture-glow-2: hsl(19 90% 62% / 0.14);
 }
 
 @layer base {
@@ -126,7 +126,10 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image:
+  }
+
+  .grainy-background {
+     background-image:
       radial-gradient(
         100% 120% at 0% 0%,
         var(--texture-glow-1),
@@ -144,12 +147,12 @@
     opacity: 1;
   }
 
-  body::after {
+  .grainy-background::after {
     content: "";
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-    opacity: 0.4;
+    opacity: 0.2;
     pointer-events: none;
   }
 }
