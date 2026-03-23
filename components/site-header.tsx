@@ -1,19 +1,10 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-// import { ModeToggle } from "@/components/mode-toggle";
-
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Archivo_Narrow } from "next/font/google";
 
-const resumeEnglishLink = process.env.RESUME_ENGLISH;
-const resumeFrenchLink = process.env.RESUME_FRENCH;
+import { Button } from "@/components/ui/button";
+// import { ModeToggle } from "@/components/mode-toggle";
+import ResumeDropdown from "@/components/resume-dropdown";
 
 type SiteHeaderProps = {
   isHomePage?: boolean;
@@ -41,38 +32,6 @@ export function SiteHeader({ isHomePage = false }: SiteHeaderProps) {
       </Link>
       <ResumeDropdown />
     </nav>
-  );
-
-  const ResumeDropdown = () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium hover:text-accent-foreground outline-none">
-        Resume <ChevronDown className="h-4 w-4" />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent
-        side="bottom"
-        align="start"
-        className="bg-background border-none"
-      >
-        <DropdownMenuItem asChild>
-          <Link
-            href={resumeEnglishLink || "#"}
-            download
-            className="cursor-pointer"
-          >
-            English
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link
-            href={resumeFrenchLink || "#"}
-            download
-            className="cursor-pointer"
-          >
-            French
-          </Link>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
   );
 
   return (
