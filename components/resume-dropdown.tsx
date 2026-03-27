@@ -9,8 +9,8 @@ import {
 import {ChevronDown} from "lucide-react"
 import Link from "next/link";
 
-const resumeEnglishLink = process.env.RESUME_ENGLISH;
-const resumeFrenchLink = process.env.RESUME_FRENCH;
+const resumeEnglishLink = process.env.NEXT_PUBLIC_RESUME_ENGLISH;
+const resumeFrenchLink = process.env.NEXT_PUBLIC_RESUME_FRENCH;
 
 const ResumeDropdown = () => {
   return (
