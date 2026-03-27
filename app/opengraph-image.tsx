@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Marouane LEMGHARI | Computer Engineering & Cybersecurity";
+export const alt = "Marouane LEMGHARI | Software Engineering & Cybersecurity";
 export const size = {
   width: 1200,
   height: 630,
@@ -68,7 +68,7 @@ export default async function Image() {
             textShadow: "0 2px 4px rgba(0,0,0,0.3)",
           }}
         >
-          Computer Engineering & Cybersecurity
+          Software Engineering & Cybersecurity
         </p>
         <div
           style={{
@@ -83,13 +83,11 @@ export default async function Image() {
             border: "1px solid rgba(255, 255, 255, 0.1)",
           }}
         >
-          <span>Full-Stack</span>
+          <span>Software Engineering</span>
           <span>•</span>
           <span>AI</span>
           <span>•</span>
-          <span>CTF Exploits</span>
-          <span>•</span>
-          <span>Containerized Systems</span>
+          <span>Cybersecurity</span>
         </div>
       </div>
     </div>,
