@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 // import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import rehypeHighlight from "rehype-highlight";
+import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import "highlight.js/styles/github-dark.css";
+import "katex/dist/katex.min.css";
 import React from "react";
 import {
   generateSEOMetadata,
@@ -189,18 +191,10 @@ export default async function BlogPage({
                 components={components}
                 options={{
                   mdxOptions: {
-                    remarkPlugins: [remarkGfm],
+                    remarkPlugins: [remarkGfm, remarkMath],
                     rehypePlugins: [
                       rehypeSlug,
-                      // [
-                      //   rehypeAutolinkHeadings,
-                      //   {
-                      //     behavior: "wrap",
-                      //     properties: {
-                      //       className: ["anchor"],
-                      //     },
-                      //   },
-                      // ],
+                      rehypeKatex,
                       rehypeHighlight,
                     ],
                   },
