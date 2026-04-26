@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  allowedDevOrigins: ['changelessly-belonoid-elijah.ngrok-free.dev'],
   compress: true,
   poweredByHeader: false,
   images: {
